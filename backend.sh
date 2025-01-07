@@ -43,7 +43,7 @@ VALIDATE $? "installing nodeJS 20"
 id expense
 if [ $? -ne 0 ]
  then
-    useradd expense 
+    useradd expense
     VALIDATE $? "adding expense user"
  else
     echo -e "expense user already exists $Y ... SKKIPPING $N"
@@ -64,7 +64,7 @@ VALIDATE $? "unzip backend"
 npm install &>>$LOG_FILE_NAME
 VALIDATE $? "installing dependencies"
 
-cp /home/ec2-user/expense-shell/backend/service /etc/systemd/system/backend.service
+cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service
 #preparing schema
 
 dnf install mysql -y &>>$LOG_FILE_NAME

@@ -28,6 +28,7 @@ CHECK_ROOT(){
      fi       
 }
 echo "script executed at :$TIMESTAMP" &>>$LOG_FILE_NAME
+
 CHECK_ROOT
 
 dnf module disable nodejs -y &>>$LOG_FILE_NAME
@@ -43,9 +44,9 @@ id expense &>>$LOG_FILE_NAME
 if [ $? -ne 0 ]
  then
     useradd expense &>>$LOG_FILE_NAME
-    VALIDATE $? "adding user"
+    VALIDATE $? "adding expense user"
  else
-    echo -e "expense user already exists"
+    echo -e "expense user already exists $Y ... SKKIPPING $N"
 
 mkdir -p /app &>>$LOG_FILE_NAME
 VALIDATE $? "creating folder"
@@ -56,6 +57,7 @@ VALIDATE $? "downloading backend"
 cd /app
 
 rm -rf/app/*
+
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
 VALIDATE $? "unzip backend"
 

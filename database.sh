@@ -29,7 +29,7 @@ CHECK_ROOT(){
 }
 echo "script executed at :$TIMESTAMP" &>>$LOG_FILE_NAME
 CHECK_ROOT
-dnf install ,ysql-server -y &>>$LOG_FILE_NAME
+dnf install ,mysql-server -y &>>$LOG_FILE_NAME
 VALIDATE $? "mysql installation is"
 
 systemctl enable mysqld &>>$LOG_FILE_NAME

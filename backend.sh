@@ -47,7 +47,7 @@ if [ $? -ne 0 ]
     VALIDATE $? "adding expense user"
  else
     echo -e "expense user already exists $Y ... SKKIPPING $N"
-
+fi
 mkdir -p /app &>>$LOG_FILE_NAME
 VALIDATE $? "creating folder"
 
